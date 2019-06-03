@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-demo
+spec:
+  selector:
+    matchLabels:
+      run: docker-demo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: docker-demo
+    spec:
+      containers:
+      - name: docker-demo
+        image: merxer/docker-demo:0.0.1
+        ports:
+        - containerPort: 8888
